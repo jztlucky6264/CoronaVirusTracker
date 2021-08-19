@@ -66,8 +66,8 @@ const Coronatracker = () => {
                 val.state.toLocaleLowerCase().includes(find.toLocaleLowerCase())
               ) {
                 return val;
-              } else if (setSearch === "") {
-                return setData([0]);
+              } else if (setFind === "") {
+                return data([0]);
               }
             })
             .map((states) => {

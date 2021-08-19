@@ -20,6 +20,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
 }
+
 .global .heading {
   font-size: 2rem;
   color: white;
@@ -28,14 +29,51 @@ body {
   text-align: center;
   margin-top: 1.8rem;
 }
-.global span {
+.global p {
   font-size: 1.5rem !important;
+}
+.global span {
+  -webkit-animation-name: flash;
+  animation-name: flash;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes flash {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
 }
 
 .container {
   margin-top: 5rem;
 }
-
+.input_div {
+  margin-bottom: 2rem;
+}
 input {
   width: 13rem;
   border: none;
@@ -79,9 +117,24 @@ input {
   min-height: 25vh;
   margin: 2rem;
 }
+@media (min-width: 568px) {
+  .global {
+    height: 50vh;
+  }
+}
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  .global {
+    height: 40vh;
+  }
+  .global .heading {
+    font-weight: 700;
+    font-size: 3.5rem;
+  }
+  .input_div {
+    margin-bottom: 2rem;
+  }
   .row {
     display: flex;
     justify-content: space-around;
