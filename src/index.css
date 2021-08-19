@@ -1,13 +1,93 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: auto;
+  width: 100%;
+  font-weight: bold;
+}
+.global {
+  height: 30vh;
+  width: 100%;
+  background: linear-gradient(rgba(18, 98, 255, 0.9), rgba(18, 98, 255, 0.3)),
+    url(./image/pexels-cdc-3992933.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.global .heading {
+  font-size: 2rem;
+  color: white;
+  width: 100%;
+  font-weight: 700 !important;
+  text-align: center;
+  margin-top: 1.8rem;
+}
+.global span {
+  font-size: 1.5rem !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  margin-top: 5rem;
+}
+
+input {
+  width: 13rem;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.col-sm-8 h2 {
+  color: #000;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.col-sm-8 h1 {
+  text-shadow: -4px 2px 3px rgba(206, 89, 55, 0.81);
+  color: white;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.col-sm-8 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  background-image: linear-gradient(
+    to right bottom,
+    #d16ba5,
+    #c777b9,
+    #ba83ca,
+    #aa8fd8,
+    #9a9ae1,
+    #8aa7ec,
+    #79b3f4,
+    #69bff8,
+    #52cffe,
+    #41dfff,
+    #46eefa,
+    #5ffbf1
+  );
+  min-height: 25vh;
+  margin: 2rem;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .row {
+    display: flex;
+    justify-content: space-around;
+  }
+  .col-sm-8 {
+    min-height: 25vh;
+    margin: 0.5rem;
+  }
 }
