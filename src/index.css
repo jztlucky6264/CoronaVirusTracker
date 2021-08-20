@@ -9,7 +9,8 @@ body {
   font-weight: bold;
 }
 .global {
-  height: 30vh;
+  position: relative;
+  min-height: 30vh;
   width: 100%;
   background: linear-gradient(rgba(18, 98, 255, 0.9), rgba(18, 98, 255, 0.3)),
     url(./image/pexels-cdc-3992933.jpg);
@@ -27,7 +28,7 @@ body {
   width: 100%;
   font-weight: 700 !important;
   text-align: center;
-  margin-top: 1.8rem;
+  margin-top: 0.8rem;
 }
 .global p {
   font-size: 1.5rem !important;
@@ -119,7 +120,8 @@ input {
 }
 @media (min-width: 568px) {
   .global {
-    height: 50vh;
+    position: relative;
+    min-height: 50vh;
   }
 }
 

@@ -1,25 +1,25 @@
 import React, { useEffect, useState, memo } from "react";
-import { RiVirusFill } from "react-icons/ri";
+
 const Coronatracker = () => {
   const [data, setData] = useState("");
-  const [Search, setSearch] = useState("");
-  const [find, setFind] = useState("");
-  const Search_state = (e) => {
-    setSearch(e.target.value);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchBtn, setSearchBtn] = useState("");
+  const searchState = (e) => {
+    setSearchTerm(e.target.value);
   };
 
-  const Searchblank = () => {
-    setFind(() => {
-      return Search;
+  const clickbutton = () => {
+    setSearchBtn(() => {
+      return searchTerm;
     });
-    setSearch("");
+    setSearchTerm("");
   };
 
   const getCovidData = async () => {
     try {
       const res = await fetch("https://data.covid19india.org/data.json");
       const actualData = await res.json();
-      //console.log(actualData.statewise[1]);
+      // console.log(actualData.statewise);
       setData(actualData.statewise);
     } catch (error) {
       console.log(error);
@@ -35,44 +35,54 @@ const Coronatracker = () => {
       <div className=" input_div d-flex align-items-center justify-content-center mt-4">
         <input
           type="text"
-          value={Search}
+          value={searchTerm}
           placeholder="search state"
-          onChange={Search_state}
+          onChange={searchState}
         />
-        <button className="btn" onClick={Searchblank}>
+        <button className="btn" onClick={clickbutton}>
           Search
         </button>
       </div>
     );
   }
+  /* 
+  const results = !Search
+    ? data[1]
+    : data.filter((val) =>
+        val.state.toLocaleLowerCase().includes(Search.toLocaleLowerCase())
+      ); */
   return (
     <>
       <div className=" input_div d-flex align-items-center justify-content-center mt-4">
         <input
           type="text"
-          value={Search}
+          value={searchTerm}
           placeholder="search state"
-          onChange={Search_state}
+          onChange={searchState}
         />
-        <button className="btn" onClick={Searchblank}>
+        <button className="btn" onClick={clickbutton}>
           Search
         </button>
       </div>
       <div className="container-fluid ">
-        <div className="row">
-          {data
-            .filter((val) => {
-              if (
-                val.state.toLocaleLowerCase().includes(find.toLocaleLowerCase())
-              ) {
-                return val;
-              } else if (setFind === "") {
-                return data([0]);
-              }
-            })
-            .map((states) => {
-              return (
-                <>
+        {data
+          .filter((val) => {
+            if (searchBtn === "") {
+              return val[0];
+            } else if ([val.state] === searchBtn) {
+              return <h1>hello</h1>;
+            } else if (
+              val.state
+                .toLocaleLowerCase()
+                .includes(searchBtn.toLocaleLowerCase())
+            ) {
+              return val;
+            }
+          })
+          .map((states) => {
+            return (
+              <>
+                <div key={states.statecode} className="row">
                   <div className="col-sm-8 col-md-3  ">
                     <h2>Country</h2>
                     <h1>INDIA</h1>
@@ -97,10 +107,10 @@ const Coronatracker = () => {
                     <h2>Death</h2>
                     <h1>{states.deaths}</h1>
                   </div>
-                </>
-              );
-            })}
-        </div>
+                </div>
+              </>
+            );
+          })}
       </div>
     </>
   );

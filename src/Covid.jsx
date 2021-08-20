@@ -7,7 +7,7 @@ const Covid = () => {
         <p className="heading">
           <span>🔴</span> LIVE
         </p>
-        <h1 className="heading">COVID-19 TRACKER</h1>
+        <h1 className="heading">COVID-19 TRACKER OF INDIA</h1>
       </div>
     </>
   );
