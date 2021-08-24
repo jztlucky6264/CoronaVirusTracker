@@ -19,7 +19,7 @@ const Coronatracker = () => {
     try {
       const res = await fetch("https://data.covid19india.org/data.json");
       const actualData = await res.json();
-      // console.log(actualData.statewise);
+      console.log(actualData.statewise);
       setData(actualData.statewise);
     } catch (error) {
       console.log(error);
@@ -45,12 +45,6 @@ const Coronatracker = () => {
       </div>
     );
   }
-  /* 
-  const results = !Search
-    ? data[1]
-    : data.filter((val) =>
-        val.state.toLocaleLowerCase().includes(Search.toLocaleLowerCase())
-      ); */
   return (
     <>
       <div className=" input_div d-flex align-items-center justify-content-center mt-4">
@@ -69,8 +63,6 @@ const Coronatracker = () => {
           .filter((val) => {
             if (searchBtn === "") {
               return val[0];
-            } else if ([val.state] === searchBtn) {
-              return <h1>hello</h1>;
             } else if (
               val.state
                 .toLocaleLowerCase()
@@ -79,13 +71,13 @@ const Coronatracker = () => {
               return val;
             }
           })
-          .map((states) => {
+          .map((states, indx) => {
             return (
               <>
-                <div key={states.statecode} className="row">
+                <div key={indx} className="row">
                   <div className="col-sm-8 col-md-3  ">
-                    <h2>Country</h2>
-                    <h1>INDIA</h1>
+                    <h2>Last Update</h2>
+                    <h1>{states.lastupdatedtime}</h1>
                   </div>
                   <div className="col-sm-8 col-md-3">
                     <h2>State </h2>

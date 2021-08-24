@@ -123,6 +123,16 @@ input {
     position: relative;
     min-height: 50vh;
   }
+  .row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+  }
+  .col-sm-8 {
+    min-height: 30vh;
+    margin: 1rem;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -140,6 +150,8 @@ input {
   .row {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
   }
   .col-sm-8 {
     min-height: 25vh;
