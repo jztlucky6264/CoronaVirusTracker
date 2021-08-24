@@ -77,7 +77,7 @@ const Coronatracker = () => {
                 <div key={indx} className="row">
                   <div className="col-sm-8 col-md-3  ">
                     <h2>Last Update</h2>
-                    <h1>{states.lastupdatedtime}</h1>
+                    <h1 className="text-center">{states.lastupdatedtime}</h1>
                   </div>
                   <div className="col-sm-8 col-md-3">
                     <h2>State </h2>
